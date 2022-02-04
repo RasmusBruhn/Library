@@ -1,7 +1,8 @@
 #ifndef OBJECTS_H_INCLUDED
 #define OBJECTS_H_INCLUDED
 
-#include <stdinc.h>
+#include <stdio.h>
+#include <stdint.h>
 #include <SDL2/SDL.h>
 
 // Int point
