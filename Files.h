@@ -10,7 +10,7 @@
 #define ERR_PREFIX FIL
 #include <Error.h>
 
-enum _SET_ErrorID {
+enum _FIL_ErrorID {
     _FIL_ERRORID_NONE = 0x400000000,
     _FIL_ERRORID_LOAD_FILE = 0x400010200,
     _FIL_ERRORID_LOAD_SEEKEND = 0x400010201,
