@@ -34,7 +34,7 @@ HAS_Hash *HAS_CreateHash(uint32_t Depth, uint64_t Seed);
 void HAS_DestroyHash(HAS_Hash *Hash);
 
 // Hash a value
-uint64_t HAS_HashValue(HAS_Hash *Hash, uint8_t *Value, size_t Length);
+uint64_t HAS_HashValue(HAS_Hash *Hash, const uint8_t *Value, size_t Length);
 
 HAS_Hash *HAS_CreateHash(uint32_t Depth, uint64_t Seed)
 {
@@ -75,13 +75,13 @@ void HAS_DestroyHash(HAS_Hash *Hash)
     free(Hash);
 }
 
-uint64_t HAS_HashValue(HAS_Hash *Hash, uint8_t *Value, size_t Length)
+uint64_t HAS_HashValue(HAS_Hash *Hash, const uint8_t *Value, size_t Length)
 {
     // Go through all elements and hash them together
     uint64_t HashValue = 0;
     uint32_t Layer = 0;
 
-    for (uint8_t *List = Value, *EndList = Value + Length; List < EndList; ++List)
+    for (const uint8_t *List = Value, *EndList = Value + Length; List < EndList; ++List)
     {
         HashValue ^= *(Hash->table + _HAS_HASHBASESIZE * Layer++ + *List);
         
