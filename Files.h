@@ -30,9 +30,9 @@ enum _FIL_ErrorID {
 
 // Loads the entirety of the file into a string
 // FileName: The path of the file
-char *FIL_Load(char *FileName);
+char *FIL_Load(const char *FileName);
 
-char *FIL_Load(char *FileName)
+char *FIL_Load(const char *FileName)
 {
     // Open the file
     FILE *File = fopen(FileName, "r");
