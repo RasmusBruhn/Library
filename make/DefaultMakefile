@@ -1,0 +1,6 @@
+-l%: %.c %.h _%.h
+	$(CC) $(CCFLAGS) -shared $< -fPIC -o lib$*.so
+
+.PHONY: clean
+clean:
+	-rm -f *_tb *.o *.so
