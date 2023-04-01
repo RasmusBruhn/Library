@@ -1,7 +1,7 @@
 WARNINGS = -Wall -Wextra -Werror
 LIBPATH = -I../Library -L. -L../Library/libs -Wl,-rpath=. -Wl,-rpath=../Library/libs
 OPTIONS = -g
-LIBS = -lErrorLog
 
 CC = gcc
-CCFLAGS = $(WARNINGS) $(LIBPATH) $(LIBS) $(OPTIONS) $(OPT)
+CCFLAGS = $(WARNINGS) $(LIBPATH) $(OPTIONS) $(OPT)
+LINKER = -lErrorLog -lDebug2
