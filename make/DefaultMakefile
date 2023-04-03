@@ -1,5 +1,8 @@
--l%: %.c %.h _%.h
-	$(CC) $(CCFLAGS) -shared $< -fPIC -o lib$*.so
+%_tb: %_tb.c %.h | lib%.so
+	$(CC) $(CCFLAGS) -o $@ $< $| $(LINKER)
+
+lib%.so: %.c %.h _%.h
+	$(CC) $(CCFLAGS) -shared $< -fPIC -o lib$*.so $(LINKER)
 
 .PHONY: clean
 clean:

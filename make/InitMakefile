@@ -4,4 +4,4 @@ OPTIONS = -g
 
 CC = gcc
 CCFLAGS = $(WARNINGS) $(LIBPATH) $(OPTIONS) $(OPT)
-LINKER = -lErrorLog -lDebug2
+LINKER = -lm -lErrorLog -lDebug2
