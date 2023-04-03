@@ -1,0 +1,20 @@
+ifeq ($(STATIC), True)
+%_tb: %_tb.c %.h | lib%.so lib%.a
+	$(CC) $(CCFLAGS) -o $@ $< $| $(LINKER)
+else
+%_tb: %_tb.c %.h | lib%.so lib%.a
+	$(CC) $(CCFLAGS) -o $@ $< $| $(LINKER)
+endif
+
+lib%.so: %.c %.h _%.h
+	$(CC) $(CCFLAGS) -shared $< -fPIC -o lib$*.so $(LINKER)
+
+lib%.a: staticLib%.o
+	ar -rc lib$*.a staticLib$*.o
+#-l:libNAME.a
+staticLib%.o: %.c %.h _%.h
+	$(CC) $(CCFLAGS) -c $< -o staticLib$*.o $(STATICLINKER)
+
+.PHONY: clean
+clean:
+	-rm -f *_tb *.o *.so
